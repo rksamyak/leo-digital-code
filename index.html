@@ -270,8 +270,8 @@
       min-height:100vh;
       display:flex;
       align-items:center;
-      justify-content:center;
-      text-align:center;
+      justify-content:flex-start;
+      text-align:left;
       padding:0 7%;
       position:relative;
       z-index:2;
@@ -343,103 +343,75 @@
       transform:translateY(-3px);
     }
 
-    /* Stats Section */
-
-    /* ── Stats Section ── */
-    .stats-section{
-      padding:40px 7% 80px;
-      position:relative;
-      z-index:2;
-    }
-
-    .stats-container{
-      max-width:900px;
-      margin:0 auto;
+    /* ── Stats Panel (right side of hero) ── */
+    .stats-panel{
+      position:absolute;
+      right:5%;
+      top:50%;
+      transform:translateY(-50%);
       display:flex;
-      justify-content:center;
-      gap:24px;
-      flex-wrap:wrap;
-    }
-
-    /* Keyframes */
-    @keyframes floatCard{
-      0%,100%{ transform:translateY(0px); }
-      50%{ transform:translateY(-12px); }
-    }
-
-    @keyframes fadeUp{
-      from{ opacity:0; transform:translateY(30px); }
-      to{ opacity:1; transform:translateY(0); }
-    }
-
-    @keyframes glowPulse{
-      0%,100%{ box-shadow:0 0 18px rgba(177,77,255,0.25), 0 8px 32px rgba(0,0,0,0.4); }
-      50%{ box-shadow:0 0 36px rgba(177,77,255,0.5), 0 12px 40px rgba(0,0,0,0.5); }
+      flex-direction:column;
+      gap:12px;
+      z-index:10;
     }
 
     .stat-card{
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(177,77,255,0.2);
-      border-radius:20px;
-      padding:28px 36px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(177,77,255,0.25);
+      border-radius:16px;
+      padding:14px 20px;
       text-align:center;
       backdrop-filter:blur(20px);
       -webkit-backdrop-filter:blur(20px);
-      box-shadow:0 0 18px rgba(177,77,255,0.2), 0 8px 32px rgba(0,0,0,0.4);
-      min-width:200px;
-      flex:1;
-      max-width:250px;
-
-      /* fade-up entrance */
-      opacity:0;
-      animation:
-        fadeUp 0.7s ease forwards,
-        floatCard 5s ease-in-out infinite;
+      min-width:130px;
+      transition:border-color 0.3s, background 0.3s;
     }
-
-    /* stagger per card */
-    .stat-card:nth-child(1){ animation-delay:0.1s, 0.8s; }
-    .stat-card:nth-child(2){ animation-delay:0.3s, 1.3s; }
-    .stat-card:nth-child(3){ animation-delay:0.5s, 1.8s; }
 
     .stat-card:hover{
-      animation-play-state:paused, paused;
-      transform:translateY(-16px) scale(1.04);
-      border-color:rgba(177,77,255,0.5);
-      animation:glowPulse 1.5s ease-in-out infinite;
-      transition:transform 0.3s ease, border-color 0.3s ease;
+      border-color:rgba(177,77,255,0.6);
+      background:rgba(177,77,255,0.1);
     }
 
-
     .stat-number{
-      font-size:2.6rem;
+      font-size:1.7rem;
       font-weight:700;
       background:linear-gradient(135deg, #ffffff 30%, #b14dff);
       -webkit-background-clip:text;
       background-clip:text;
       -webkit-text-fill-color:transparent;
       line-height:1;
-      margin-bottom:8px;
+      margin-bottom:4px;
     }
 
     .stat-label{
-      font-size:0.82rem;
+      font-size:0.7rem;
       color:#aaaaaa;
       font-weight:400;
       letter-spacing:0.5px;
       text-transform:uppercase;
     }
 
-    /* Responsive */
-    @media(max-width:600px){
-      .stats-container{
-        flex-direction:column;
-        align-items:center;
+    @media(max-width:900px){
+      .stats-panel{
+        position:static;
+        transform:none;
+        flex-direction:row;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:10px;
+        margin-top:30px;
       }
       .stat-card{
-        max-width:100%;
-        width:100%;
+        min-width:100px;
+        padding:12px 16px;
       }
+      .stat-number{ font-size:1.4rem; }
+    }
+
+    @media(max-width:600px){
+      .stats-panel{ gap:8px; }
+      .stat-card{ min-width:90px; padding:10px 12px; }
+      .stat-number{ font-size:1.2rem; }
     }
 
     /* ── Responsive ── */
@@ -575,85 +547,6 @@
       background:rgba(177,77,255,0.07);
     }
 
-    /* ── Success Stories ── */
-    .stories-section{
-      padding:80px 7%;
-      position:relative;
-      z-index:2;
-    }
-    .stories-section .section-title,
-    .stories-section .section-subtitle{ text-align:center; }
-    .stories-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:28px;
-      margin-top:50px;
-    }
-    .story-card{
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(177,77,255,0.15);
-      border-radius:22px;
-      padding:34px 28px;
-      backdrop-filter:blur(16px);
-      transition:transform 0.3s ease,border-color 0.3s ease,box-shadow 0.3s ease;
-      position:relative;
-      overflow:hidden;
-    }
-    .story-card::before{
-      content:'';
-      position:absolute;
-      top:-60px; right:-60px;
-      width:140px; height:140px;
-      border-radius:50%;
-      background:rgba(177,77,255,0.08);
-      filter:blur(30px);
-    }
-    .story-card:hover{
-      transform:translateY(-8px);
-      border-color:rgba(177,77,255,0.4);
-      box-shadow:0 12px 40px rgba(177,77,255,0.15);
-    }
-    .story-client{
-      font-size:0.75rem;
-      font-weight:600;
-      letter-spacing:2px;
-      color:#b14dff;
-      text-transform:uppercase;
-      margin-bottom:10px;
-    }
-    .story-title{
-      font-size:1.15rem;
-      font-weight:700;
-      color:white;
-      margin-bottom:20px;
-      line-height:1.4;
-    }
-    .story-stats{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-    }
-    .story-stat{
-      background:rgba(255,255,255,0.04);
-      border-radius:12px;
-      padding:14px;
-      text-align:center;
-    }
-    .story-stat .val{
-      font-size:1.6rem;
-      font-weight:800;
-      background:linear-gradient(135deg,#fff,#b14dff);
-      -webkit-background-clip:text;
-      background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-    .story-stat .key{
-      font-size:0.72rem;
-      color:#888;
-      margin-top:4px;
-      text-transform:uppercase;
-      letter-spacing:0.5px;
-    }
 
     /* ── Digital Marketing Power ── */
     .power-section{
@@ -899,7 +792,6 @@
 
       <div class="hero-content">
 
-
         <h1>
           Transforming Ideas Into<br>
           Powerful Digital Experiences
@@ -917,28 +809,22 @@
 
       </div>
 
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats-section">
-      <div class="stats-container">
-
+      <!-- Stats Panel (right side) -->
+      <div class="stats-panel">
         <div class="stat-card">
           <div class="stat-number">150+</div>
           <div class="stat-label">Projects Completed</div>
         </div>
-
         <div class="stat-card">
           <div class="stat-number">98%</div>
           <div class="stat-label">Happy Clients</div>
         </div>
-
         <div class="stat-card">
           <div class="stat-number">10+</div>
           <div class="stat-label">Years Experience</div>
         </div>
-
       </div>
+
     </section>
 
   </div><!-- end #vanta-bg -->
@@ -971,48 +857,6 @@
           <div class="partner-logo">NOTION</div>
           <div class="partner-logo">STRIPE</div>
         </div>
-      </div>
-    </section>
-
-    <!-- Success Stories Section -->
-    <section class="stories-section">
-      <h2 class="section-title">Our Success Stories</h2>
-      <p class="section-subtitle">Real results for real businesses</p>
-      <div class="stories-grid">
-
-        <div class="story-card">
-          <div class="story-client">E-Commerce Brand</div>
-          <div class="story-title">From Startup to ₹2Cr Revenue in 8 Months</div>
-          <div class="story-stats">
-            <div class="story-stat"><div class="val counter" data-target="340">0</div><div class="key">% Revenue Growth</div></div>
-            <div class="story-stat"><div class="val counter" data-target="2.1">0</div><div class="key">M Social Reach</div></div>
-            <div class="story-stat"><div class="val counter" data-target="87">0</div><div class="key">% Engagement Up</div></div>
-            <div class="story-stat"><div class="val counter" data-target="5">0</div><div class="key">X ROAS</div></div>
-          </div>
-        </div>
-
-        <div class="story-card">
-          <div class="story-client">SaaS Company</div>
-          <div class="story-title">10,000 New Sign-ups in 90 Days</div>
-          <div class="story-stats">
-            <div class="story-stat"><div class="val counter" data-target="220">0</div><div class="key">% User Growth</div></div>
-            <div class="story-stat"><div class="val counter" data-target="4.8">0</div><div class="key">M Impressions</div></div>
-            <div class="story-stat"><div class="val counter" data-target="64">0</div><div class="key">% Cost Reduction</div></div>
-            <div class="story-stat"><div class="val counter" data-target="12">0</div><div class="key">X Lead Quality</div></div>
-          </div>
-        </div>
-
-        <div class="story-card">
-          <div class="story-client">Fashion Brand</div>
-          <div class="story-title">Scaled Instagram to 500K Followers</div>
-          <div class="story-stats">
-            <div class="story-stat"><div class="val counter" data-target="500">0</div><div class="key">K Followers</div></div>
-            <div class="story-stat"><div class="val counter" data-target="9.2">0</div><div class="key">% Engagement Rate</div></div>
-            <div class="story-stat"><div class="val counter" data-target="180">0</div><div class="key">% Sales Increase</div></div>
-            <div class="story-stat"><div class="val counter" data-target="3">0</div><div class="key">X Brand Value</div></div>
-          </div>
-        </div>
-
       </div>
     </section>
 
