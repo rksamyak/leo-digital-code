@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leo Digital - Creative Digital Agency</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    html,body{
+      width:100%;
+      height:100%;
+      overflow-x:hidden;
+      background:#0a0a0a;
+      color:white;
+    }
+
+    /* Vanta Background */
+
+    #vanta-bg{
+      width:100%;
+      min-height:100vh;
+      position:relative;
+    }
+
+    /* Navbar */
+
+    .navbar{
+      width:calc(100% - 60px);
+      padding:10px 24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      position:fixed;
+      top:16px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:1000;
+      border-radius:60px;
+
+      background:rgba(10,10,10,0.55);
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 2px 20px rgba(0,0,0,0.4);
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      text-decoration:none;
+      cursor:pointer;
+      flex-shrink:0;
+    }
+
+    .logo-badge{
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      background:#ffffff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+    }
+
+    .logo-badge span{
+      font-size:20px;
+      font-weight:800;
+      font-style:italic;
+      color:#0a0a0a;
+      letter-spacing:-1px;
+      line-height:1;
+    }
+
+    .logo-text{
+      font-size:18px;
+      font-weight:800;
+      font-style:italic;
+      color:white;
+      letter-spacing:-0.5px;
+      line-height:1;
+    }
+
+    .logo-text span{
+      color:#b14dff;
+    }
+
+    @media(max-width:768px){
+      .logo-badge{
+        width:40px;
+        height:40px;
+      }
+      .logo-badge span{
+        font-size:14px;
+      }
+      .logo-text{
+        font-size:17px;
+      }
+    }
+
+    .nav-links{
+      display:flex;
+      gap:40px;
+      align-items:center;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:rgba(255,255,255,0.75);
+      font-size:13.5px;
+      font-weight:500;
+      transition:0.3s ease;
+      position:relative;
+    }
+
+    .nav-links a::after{
+      content:'';
+      position:absolute;
+      bottom:-4px;
+      left:0;
+      width:100%;
+      height:2px;
+      border-radius:2px;
+      background:linear-gradient(to right, #7a00ff, #b14dff);
+      transform:scaleX(0);
+      transform-origin:left;
+      transition:transform 0.3s ease;
+    }
+
+    .nav-links a:hover{
+      color:#d7b6ff;
+    }
+
+    .nav-links a:hover::after{
+      transform:scaleX(1);
+    }
+
+    .nav-right{
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .login-btn{
+      padding:8px 18px;
+      border-radius:30px;
+      border:1px solid rgba(255,255,255,0.15);
+      background:rgba(255,255,255,0.06);
+      color:white;
+      cursor:pointer;
+      transition:0.3s;
+      backdrop-filter:blur(10px);
+      font-size:13px;
+      font-weight:500;
+    }
+
+    .login-btn:hover{
+      background:white;
+      color:#6a00ff;
+    }
+
+    .contact-btn{
+      padding:8px 18px;
+      border:none;
+      border-radius:30px;
+      background:white;
+      color:#6a00ff;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+      font-size:13px;
+    }
+
+    .contact-btn:hover{
+      transform:translateY(-2px);
+    }
+
+    /* Hero Section */
+
+    .hero{
+      width:100%;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:0 7%;
+      position:relative;
+      z-index:2;
+    }
+
+    .hero-content{
+      max-width:850px;
+    }
+
+    .hero-tag{
+      display:inline-block;
+      padding:8px 18px;
+      border-radius:30px;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.1);
+      margin-bottom:25px;
+      font-size:14px;
+      letter-spacing:1.5px;
+      backdrop-filter:blur(10px);
+    }
+
+    .hero h1{
+      font-size:72px;
+      line-height:1.1;
+      margin-bottom:25px;
+      font-weight:700;
+    }
+
+    .hero p{
+      font-size:18px;
+      color:#d1d1d1;
+      line-height:1.8;
+      margin-bottom:40px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .primary-btn{
+      padding:15px 35px;
+      border:none;
+      border-radius:40px;
+      background:white;
+      color:#6a00ff;
+      font-size:16px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .secondary-btn{
+      padding:15px 35px;
+      border-radius:40px;
+      border:1px solid rgba(255,255,255,0.2);
+      background:rgba(255,255,255,0.05);
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+      transition:0.3s;
+      backdrop-filter:blur(10px);
+    }
+
+    .primary-btn:hover,
+    .secondary-btn:hover{
+      transform:translateY(-3px);
+    }
+
+    /* Stats Section */
+
+    /* ── Stats Section ── */
+    .stats-section{
+      padding:40px 7% 80px;
+      position:relative;
+      z-index:2;
+    }
+
+    .stats-container{
+      max-width:900px;
+      margin:0 auto;
+      display:flex;
+      justify-content:center;
+      gap:24px;
+      flex-wrap:wrap;
+    }
+
+    /* Keyframes */
+    @keyframes floatCard{
+      0%,100%{ transform:translateY(0px); }
+      50%{ transform:translateY(-12px); }
+    }
+
+    @keyframes fadeUp{
+      from{ opacity:0; transform:translateY(30px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+
+    @keyframes glowPulse{
+      0%,100%{ box-shadow:0 0 18px rgba(177,77,255,0.25), 0 8px 32px rgba(0,0,0,0.4); }
+      50%{ box-shadow:0 0 36px rgba(177,77,255,0.5), 0 12px 40px rgba(0,0,0,0.5); }
+    }
+
+    .stat-card{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(177,77,255,0.2);
+      border-radius:20px;
+      padding:28px 36px;
+      text-align:center;
+      backdrop-filter:blur(20px);
+      -webkit-backdrop-filter:blur(20px);
+      box-shadow:0 0 18px rgba(177,77,255,0.2), 0 8px 32px rgba(0,0,0,0.4);
+      min-width:200px;
+      flex:1;
+      max-width:250px;
+
+      /* fade-up entrance */
+      opacity:0;
+      animation:
+        fadeUp 0.7s ease forwards,
+        floatCard 5s ease-in-out infinite;
+    }
+
+    /* stagger per card */
+    .stat-card:nth-child(1){ animation-delay:0.1s, 0.8s; }
+    .stat-card:nth-child(2){ animation-delay:0.3s, 1.3s; }
+    .stat-card:nth-child(3){ animation-delay:0.5s, 1.8s; }
+
+    .stat-card:hover{
+      animation-play-state:paused, paused;
+      transform:translateY(-16px) scale(1.04);
+      border-color:rgba(177,77,255,0.5);
+      animation:glowPulse 1.5s ease-in-out infinite;
+      transition:transform 0.3s ease, border-color 0.3s ease;
+    }
+
+
+    .stat-number{
+      font-size:2.6rem;
+      font-weight:700;
+      background:linear-gradient(135deg, #ffffff 30%, #b14dff);
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
+      line-height:1;
+      margin-bottom:8px;
+    }
+
+    .stat-label{
+      font-size:0.82rem;
+      color:#aaaaaa;
+      font-weight:400;
+      letter-spacing:0.5px;
+      text-transform:uppercase;
+    }
+
+    /* Responsive */
+    @media(max-width:600px){
+      .stats-container{
+        flex-direction:column;
+        align-items:center;
+      }
+      .stat-card{
+        max-width:100%;
+        width:100%;
+      }
+    }
+
+    /* Responsive */
+
+    @media(max-width:991px){
+
+      .nav-links{
+        display:none;
+      }
+
+      .hero h1{
+        font-size:48px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+      .stats-container{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+    @media(max-width:600px){
+
+      .hero h1{
+        font-size:38px;
+      }
+
+      .navbar{
+        padding:18px 5%;
+      }
+
+      .hero{
+        padding:0 5%;
+      }
+
+    }
+
+    /* ── Partners Section ── */
+    .partners-section{
+      padding:70px 7%;
+      position:relative;
+      z-index:2;
+      text-align:center;
+    }
+    .section-title{
+      font-size:2rem;
+      font-weight:700;
+      color:white;
+      margin-bottom:10px;
+    }
+    .section-subtitle{
+      font-size:1rem;
+      color:#888;
+      margin-bottom:50px;
+    }
+    .partners-track-wrapper{
+      overflow:hidden;
+      width:100%;
+      position:relative;
+    }
+    .partners-track-wrapper::before,
+    .partners-track-wrapper::after{
+      content:'';
+      position:absolute;
+      top:0; bottom:0; width:120px;
+      z-index:2;
+      pointer-events:none;
+    }
+    .partners-track-wrapper::before{ left:0; background:linear-gradient(to right,#0a0a0a,transparent); }
+    .partners-track-wrapper::after{ right:0; background:linear-gradient(to left,#0a0a0a,transparent); }
+    .partners-track{
+      display:flex;
+      gap:50px;
+      width:max-content;
+      animation:scrollPartners 30s linear infinite;
+    }
+    @keyframes scrollPartners{
+      0%{transform:translateX(0);}
+      100%{transform:translateX(-50%);}
+    }
+    .partner-logo{
+      background:rgba(255,255,255,0.07);
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:14px;
+      padding:20px 36px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.1rem;
+      font-weight:700;
+      color:rgba(255,255,255,0.55);
+      white-space:nowrap;
+      transition:0.3s;
+      cursor:default;
+      letter-spacing:1px;
+      backdrop-filter:blur(10px);
+    }
+    .partner-logo:hover{
+      color:#b14dff;
+      border-color:rgba(177,77,255,0.3);
+      background:rgba(177,77,255,0.07);
+    }
+
+    /* ── Success Stories ── */
+    .stories-section{
+      padding:80px 7%;
+      position:relative;
+      z-index:2;
+    }
+    .stories-section .section-title,
+    .stories-section .section-subtitle{ text-align:center; }
+    .stories-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:28px;
+      margin-top:50px;
+    }
+    .story-card{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(177,77,255,0.15);
+      border-radius:22px;
+      padding:34px 28px;
+      backdrop-filter:blur(16px);
+      transition:transform 0.3s ease,border-color 0.3s ease,box-shadow 0.3s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .story-card::before{
+      content:'';
+      position:absolute;
+      top:-60px; right:-60px;
+      width:140px; height:140px;
+      border-radius:50%;
+      background:rgba(177,77,255,0.08);
+      filter:blur(30px);
+    }
+    .story-card:hover{
+      transform:translateY(-8px);
+      border-color:rgba(177,77,255,0.4);
+      box-shadow:0 12px 40px rgba(177,77,255,0.15);
+    }
+    .story-client{
+      font-size:0.75rem;
+      font-weight:600;
+      letter-spacing:2px;
+      color:#b14dff;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+    .story-title{
+      font-size:1.15rem;
+      font-weight:700;
+      color:white;
+      margin-bottom:20px;
+      line-height:1.4;
+    }
+    .story-stats{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    .story-stat{
+      background:rgba(255,255,255,0.04);
+      border-radius:12px;
+      padding:14px;
+      text-align:center;
+    }
+    .story-stat .val{
+      font-size:1.6rem;
+      font-weight:800;
+      background:linear-gradient(135deg,#fff,#b14dff);
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    .story-stat .key{
+      font-size:0.72rem;
+      color:#888;
+      margin-top:4px;
+      text-transform:uppercase;
+      letter-spacing:0.5px;
+    }
+
+    /* ── Digital Marketing Power ── */
+    .power-section{
+      padding:80px 7%;
+      position:relative;
+      z-index:2;
+      text-align:center;
+    }
+    .power-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:24px;
+      margin-top:50px;
+    }
+    .power-card{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(177,77,255,0.18);
+      border-radius:18px;
+      padding:24px 16px;
+      position:relative;
+      overflow:hidden;
+      transition:transform 0.3s,box-shadow 0.3s;
+    }
+    .power-card::after{
+      content:'';
+      position:absolute;
+      bottom:-30px; left:50%;
+      transform:translateX(-50%);
+      width:80px; height:80px;
+      border-radius:50%;
+      background:rgba(177,77,255,0.2);
+      filter:blur(24px);
+    }
+    .power-card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 0 40px rgba(177,77,255,0.2);
+    }
+    .power-icon{
+      font-size:2rem;
+      margin-bottom:16px;
+      display:block;
+    }
+    .power-num{
+      font-size:2.4rem;
+      font-weight:800;
+      background:linear-gradient(135deg,#ffffff,#b14dff);
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
+      margin-bottom:8px;
+    }
+    .power-label{
+      font-size:0.85rem;
+      color:#aaa;
+      font-weight:400;
+    }
+    .power-bar-wrap{
+      margin-top:16px;
+      height:4px;
+      background:rgba(255,255,255,0.06);
+      border-radius:4px;
+      overflow:hidden;
+    }
+    .power-bar{
+      height:100%;
+      border-radius:4px;
+      background:linear-gradient(to right,#7a00ff,#b14dff);
+      width:0%;
+      transition:width 1.5s ease;
+    }
+
+    /* ── Footer ── */
+    .site-footer{
+      background:#060610;
+      border-top:1px solid rgba(177,77,255,0.15);
+      padding:70px 7% 30px;
+      position:relative;
+      z-index:2;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr 1.5fr;
+      gap:50px;
+      margin-bottom:50px;
+    }
+    .footer-brand .logo{
+      margin-bottom:16px;
+    }
+    .footer-desc{
+      font-size:0.88rem;
+      color:#777;
+      line-height:1.8;
+      max-width:280px;
+    }
+    .footer-socials{
+      display:flex;
+      gap:12px;
+      margin-top:20px;
+    }
+    .social-icon{
+      width:36px; height:36px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,0.1);
+      display:flex; align-items:center; justify-content:center;
+      font-size:0.85rem;
+      color:#aaa;
+      transition:0.3s;
+      text-decoration:none;
+    }
+    .social-icon:hover{
+      background:rgba(177,77,255,0.2);
+      border-color:#b14dff;
+      color:#b14dff;
+    }
+    .footer-col h4{
+      font-size:0.95rem;
+      font-weight:600;
+      color:white;
+      margin-bottom:18px;
+      letter-spacing:0.3px;
+    }
+    .footer-col ul{ list-style:none; }
+    .footer-col ul li{ margin-bottom:10px; }
+    .footer-col ul li a{
+      font-size:0.85rem;
+      color:#666;
+      text-decoration:none;
+      transition:color 0.3s;
+    }
+    .footer-col ul li a:hover{ color:#b14dff; }
+    .footer-col p{
+      font-size:0.85rem;
+      color:#666;
+      margin-bottom:8px;
+      line-height:1.6;
+    }
+    .newsletter-form{
+      display:flex;
+      gap:8px;
+      margin-top:8px;
+    }
+    .newsletter-form input{
+      flex:1;
+      padding:10px 14px;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:30px;
+      color:white;
+      font-size:0.85rem;
+      outline:none;
+    }
+    .newsletter-form input::placeholder{ color:#555; }
+    .newsletter-form button{
+      padding:10px 18px;
+      background:linear-gradient(135deg,#7a00ff,#b14dff);
+      border:none;
+      border-radius:30px;
+      color:white;
+      font-size:0.82rem;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+      white-space:nowrap;
+    }
+    .newsletter-form button:hover{ opacity:0.85; }
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding-top:24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    .footer-bottom p{
+      font-size:0.82rem;
+      color:#444;
+    }
+
+    @media(max-width:991px){
+      .stories-grid{ grid-template-columns:1fr 1fr; }
+      .power-grid{ grid-template-columns:1fr 1fr; }
+      .footer-grid{ grid-template-columns:1fr 1fr; gap:36px; }
+    }
+    @media(max-width:600px){
+      .stories-grid,.power-grid{ grid-template-columns:1fr; }
+      .footer-grid{ grid-template-columns:1fr; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Vanta Background -->
+  <div id="vanta-bg">
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+
+      <div class="logo">
+        <div class="logo-badge"><span>Leo</span></div>
+        <div class="logo-text"><span>digital</span></div>
+      </div>
+
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Work</a>
+        <a href="#">Insights</a>
+        <a href="#">Careers</a>
+      </div>
+
+      <div class="nav-right">
+        <button class="login-btn">Login</button>
+        <button class="contact-btn">Contact Us</button>
+      </div>
+
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+      <div class="hero-content">
+
+
+        <h1>
+          Transforming Ideas Into<br>
+          Powerful Digital Experiences
+        </h1>
+
+        <p>
+          We help startups and businesses build modern digital products,
+          premium websites, branding, and creative experiences.
+        </p>
+
+        <div class="hero-buttons">
+          <button class="primary-btn">Get Started</button>
+          <button class="secondary-btn">View Portfolio</button>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="stats-container">
+
+        <div class="stat-card">
+          <div class="stat-number">150+</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+
+      </div>
+    </section>
+
+  </div><!-- end #vanta-bg -->
+
+    <!-- Partners Section -->
+    <section class="partners-section">
+      <h2 class="section-title">Trusted by Leading Brands</h2>
+      <p class="section-subtitle">Powering growth for companies around the world</p>
+      <div class="partners-track-wrapper">
+        <div class="partners-track" id="partnersTrack">
+          <div class="partner-logo">GOOGLE</div>
+          <div class="partner-logo">AMAZON</div>
+          <div class="partner-logo">MICROSOFT</div>
+          <div class="partner-logo">NETFLIX</div>
+          <div class="partner-logo">SPOTIFY</div>
+          <div class="partner-logo">SHOPIFY</div>
+          <div class="partner-logo">SLACK</div>
+          <div class="partner-logo">FIGMA</div>
+          <div class="partner-logo">NOTION</div>
+          <div class="partner-logo">STRIPE</div>
+          <!-- Duplicate for seamless loop -->
+          <div class="partner-logo">GOOGLE</div>
+          <div class="partner-logo">AMAZON</div>
+          <div class="partner-logo">MICROSOFT</div>
+          <div class="partner-logo">NETFLIX</div>
+          <div class="partner-logo">SPOTIFY</div>
+          <div class="partner-logo">SHOPIFY</div>
+          <div class="partner-logo">SLACK</div>
+          <div class="partner-logo">FIGMA</div>
+          <div class="partner-logo">NOTION</div>
+          <div class="partner-logo">STRIPE</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="stories-section">
+      <h2 class="section-title">Our Success Stories</h2>
+      <p class="section-subtitle">Real results for real businesses</p>
+      <div class="stories-grid">
+
+        <div class="story-card">
+          <div class="story-client">E-Commerce Brand</div>
+          <div class="story-title">From Startup to ₹2Cr Revenue in 8 Months</div>
+          <div class="story-stats">
+            <div class="story-stat"><div class="val counter" data-target="340">0</div><div class="key">% Revenue Growth</div></div>
+            <div class="story-stat"><div class="val counter" data-target="2.1">0</div><div class="key">M Social Reach</div></div>
+            <div class="story-stat"><div class="val counter" data-target="87">0</div><div class="key">% Engagement Up</div></div>
+            <div class="story-stat"><div class="val counter" data-target="5">0</div><div class="key">X ROAS</div></div>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <div class="story-client">SaaS Company</div>
+          <div class="story-title">10,000 New Sign-ups in 90 Days</div>
+          <div class="story-stats">
+            <div class="story-stat"><div class="val counter" data-target="220">0</div><div class="key">% User Growth</div></div>
+            <div class="story-stat"><div class="val counter" data-target="4.8">0</div><div class="key">M Impressions</div></div>
+            <div class="story-stat"><div class="val counter" data-target="64">0</div><div class="key">% Cost Reduction</div></div>
+            <div class="story-stat"><div class="val counter" data-target="12">0</div><div class="key">X Lead Quality</div></div>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <div class="story-client">Fashion Brand</div>
+          <div class="story-title">Scaled Instagram to 500K Followers</div>
+          <div class="story-stats">
+            <div class="story-stat"><div class="val counter" data-target="500">0</div><div class="key">K Followers</div></div>
+            <div class="story-stat"><div class="val counter" data-target="9.2">0</div><div class="key">% Engagement Rate</div></div>
+            <div class="story-stat"><div class="val counter" data-target="180">0</div><div class="key">% Sales Increase</div></div>
+            <div class="story-stat"><div class="val counter" data-target="3">0</div><div class="key">X Brand Value</div></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Digital Marketing Power Section -->
+    <section class="power-section">
+      <h2 class="section-title">The Power of Digital Marketing</h2>
+      <p class="section-subtitle">Numbers that speak louder than words</p>
+      <div class="power-grid">
+        <div class="power-card">
+          <span class="power-icon"></span>
+          <div class="power-num">10M+</div>
+          <div class="power-label">Total Reach</div>
+          <div class="power-bar-wrap"><div class="power-bar" data-width="92"></div></div>
+        </div>
+        <div class="power-card">
+          <span class="power-icon"></span>
+          <div class="power-num">150+</div>
+          <div class="power-label">Campaigns Launched</div>
+          <div class="power-bar-wrap"><div class="power-bar" data-width="78"></div></div>
+        </div>
+        <div class="power-card">
+          <span class="power-icon"></span>
+          <div class="power-num">95%</div>
+          <div class="power-label">Client Satisfaction</div>
+          <div class="power-bar-wrap"><div class="power-bar" data-width="95"></div></div>
+        </div>
+        <div class="power-card">
+          <span class="power-icon"></span>
+          <div class="power-num">5X</div>
+          <div class="power-label">Avg. Brand Growth</div>
+          <div class="power-bar-wrap"><div class="power-bar" data-width="85"></div></div>
+        </div>
+      </div>
+    </section>
+
+  <!-- Footer (outside vanta so it has a solid dark bg) -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+
+      <div class="footer-col footer-brand">
+        <div class="logo">
+          <div class="logo-badge"><span>Leo</span></div>
+          <div class="logo-text"><span>digital</span></div>
+        </div>
+        <p class="footer-desc">We craft bold digital experiences that drive real business growth — from strategy to execution.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-icon">in</a>
+          <a href="#" class="social-icon">tw</a>
+          <a href="#" class="social-icon">ig</a>
+          <a href="#" class="social-icon">yt</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Work</a></li>
+          <li><a href="#">Insights</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">SEO & Content</a></li>
+          <li><a href="#">Paid Advertising</a></li>
+          <li><a href="#">Social Media</a></li>
+          <li><a href="#">Web Design</a></li>
+          <li><a href="#">Brand Strategy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Stay Updated</h4>
+        <p>Get weekly tips on digital marketing, design, and growth.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Your email address">
+          <button>Subscribe</button>
+        </div>
+        <p style="margin-top:20px;">📧 hello@leodigital.com</p>
+        <p>📞 +91 98765 43210</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Leodigital. All rights reserved.</p>
+      <p>Designed & Built with ❤️ by Leodigital Team</p>
+    </div>
+  </footer>
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <!-- Vanta NET -->
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+
+  <script>
+    VANTA.NET({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: true,
+      color: 0xb14dff,
+      backgroundColor: 0x0a0a0a,
+      points: 18.0,
+      maxDistance: 22.0,
+      spacing: 16.0,
+      speed: 3.5
+    });
+
+    /* ── Animated Counters ── */
+    function animateCounters(entries, observer){
+      entries.forEach(entry => {
+        if(!entry.isIntersecting) return;
+        entry.target.querySelectorAll('.counter').forEach(el => {
+          const target = parseFloat(el.dataset.target);
+          const isDecimal = target % 1 !== 0;
+          const duration = 1600;
+          const start = performance.now();
+          function update(now){
+            const progress = Math.min((now - start) / duration, 1);
+            const val = progress * target;
+            el.textContent = isDecimal ? val.toFixed(1) : Math.floor(val);
+            if(progress < 1) requestAnimationFrame(update);
+            else el.textContent = isDecimal ? target.toFixed(1) : target;
+          }
+          requestAnimationFrame(update);
+        });
+        observer.unobserve(entry.target);
+      });
+    }
+
+    const storyObserver = new IntersectionObserver(animateCounters, { threshold: 0.3 });
+    document.querySelectorAll('.story-card').forEach(card => storyObserver.observe(card));
+
+    /* ── Progress Bars ── */
+    const barObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(!entry.isIntersecting) return;
+        entry.target.querySelectorAll('.power-bar').forEach(bar => {
+          bar.style.width = bar.dataset.width + '%';
+        });
+        barObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.power-section').forEach(el => barObserver.observe(el));
+
+  </script>
+
+</body>
+</html>
